@@ -1,4 +1,4 @@
-# Bharat KYC - Digital Onboarding Solution
+# Nirmaan KYC - Digital Onboarding Solution
 
 A lightweight, multilingual digital onboarding platform designed specifically for rural and semi-urban India. This React-based application provides a seamless KYC (Know Your Customer) experience with support for multiple Indian languages and offline functionality.
 
