@@ -1,0 +1,240 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap');
+
+/* Base styles */
+:root {
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-heading: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  
+  /* Accessibility colors */
+  --focus-ring: 0 0 0 3px rgba(66, 153, 225, 0.6);
+  --focus-outline: 2px solid #3182ce;
+  --focus-outline-offset: 2px;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Remove default button styles */
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Custom scrollbar for better visibility */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 6px;
+  border: 3px solid #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.chakra-ui-dark ::-webkit-scrollbar-track {
+  background: #2D3748;
+}
+
+.chakra-ui-dark ::-webkit-scrollbar-thumb {
+  background: #4A5568;
+  border-color: #2D3748;
+}
+
+.chakra-ui-dark ::-webkit-scrollbar-thumb:hover {
+  background: #718096;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Animations */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  body {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    background: white !important;
+    color: black !important;
+    font-size: 12pt !important;
+    line-height: 1.5 !important;
+  }
+  
+  a {
+    text-decoration: underline !important;
+  }
+  
+  a[href]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    font-weight: normal;
+  }
+  
+  /* Ensure good contrast for printed text */
+  * {
+    color: #000 !important;
+    background: #FFF !important;
+  }
+}
+
+/* Custom focus styles */
+*:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-outline-offset);
+  border-radius: 0.25rem;
+  box-shadow: var(--focus-ring);
+}
+
+/* High Contrast Mode */
+.high-contrast {
+  --chakra-colors-green-500: #006400;
+  --chakra-colors-green-600: #004d00;
+  --chakra-colors-green-700: #003600;
+  --chakra-colors-saffron-500: #FF8C00;
+  --chakra-colors-saffron-600: #E67E00;
+  --chakra-colors-navy-500: #0000CD;
+  --chakra-colors-navy-600: #00008B;
+  background-color: #000 !important;
+  color: #FFF !important;
+}
+
+.high-contrast * {
+  background-color: #000 !important;
+  color: #FFF !important;
+  border-color: #FFF !important;
+}
+
+.high-contrast button,
+.high-contrast a,
+.high-contrast [role="button"],
+.high-contrast [role="link"] {
+  border: 2px solid #FFF !important;
+  padding: 0.5rem 1rem !important;
+}
+
+/* Dark mode overrides */
+.chakra-ui-dark .high-contrast {
+  --chakra-colors-green-500: #00FF00;
+  --chakra-colors-green-600: #00CC00;
+  --chakra-colors-saffron-500: #FFA500;
+  --chakra-colors-navy-500: #6495ED;
+}
+
+/* Remove default input number arrows */
+/* Remove default number input arrows */
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+/* Custom file input button */
+input[type='file'] {
+  color: transparent;
+}
+
+/* Remove autofill background color */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+  -webkit-text-fill-color: #1a202c !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Custom selection color */
+::selection {
+  background: #4f46e5;
+  color: white;
+}
+
+/* Custom placeholder color */
+::placeholder {
+  color: #a0aec0;
+  opacity: 1;
+}
+
+/* Responsive iframe */
+.iframe-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 Aspect Ratio */
+}
+
+.responsive-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Print styles for KYC receipt */
+@media print {
+  @page {
+    size: A4;
+    margin: 1cm;
+  }
+  
+  body * {
+    visibility: hidden;
+  }
+  
+  .print-area, .print-area * {
+    visibility: visible;
+  }
+  
+  .print-area {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+}
